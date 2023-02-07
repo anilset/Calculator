@@ -6,10 +6,10 @@ public class Calc {
     static byte a;
     static byte b;
     static String operator;
-    static int result;
+    static Integer result;
 
 
-    public static String calc(String input) throws NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException, NumberException {
+    public static String calc(String input) throws NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException, NumException {
         try {
             String[] inputs = input.split(" ");
             if (inputs.length > 3) {
@@ -19,7 +19,7 @@ public class Calc {
             b = Byte.parseByte(inputs[2]);
             operator = inputs[1];
             if ((a < 1 || a > 10) || (b < 1 || b > 10)) {
-                throw new NumberException();
+                throw new NumException();
             }
             switch (operator) {
                 case "+":
@@ -39,10 +39,11 @@ public class Calc {
                     throw new IllegalArgumentException();
             }
         } catch(NullPointerException | ArrayIndexOutOfBoundsException | IllegalArgumentException |
-                NumberException exception) {
-            NumberException.printDescription();
-        }
-        return Integer.toString(result);
+                NumException exception) {
+            NumException.printDescription();
+        } if (result == null) {
+            throw new NullPointerException ();
+        } return Integer.toString(result);
     }
 }
 

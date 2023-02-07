@@ -26,7 +26,7 @@ Input:
 Output:
 throws Exception //т.к. формат математической операции не удовлетворяет заданию
 */
-public class Main {
+class Main1 {
     public static void main(String[] args) throws NumberException, NullPointerException, ArrayIndexOutOfBoundsException {
 
         Scanner scanner = new Scanner(System.in);
